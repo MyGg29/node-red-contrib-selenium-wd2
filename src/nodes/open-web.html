@@ -47,7 +47,10 @@
 		<p>Create an instance of a Selenium Webdriver and connect it to a Selenium Server (Server)</p>
 		
 		<h3>Inputs</h3>
-			<p>No specific input are required to launch this node.</p>
+			<dl class="message-properties">
+				<dt class="optional">webURL<span class="property-type">string</span></dt>
+				<dd> The url to be loaded by the browser. If not set in the node, msg.webURL will be used.</dd>
+			</dl>
 		
 		 <h3>Outputs</h3>
 			 <ol class="node-ports">
@@ -70,7 +73,7 @@
 			<p><ul>
 				<li><a>Server</a>: specify the selenium server url. It could be localhost or remote Selenium Server.</li>
 				<li><a>Browser</a>: specify the the web browser you want to use such as [Chrome, Firefox etc.,]</li>
-				<li><a>Web URL</a>: specify the web page to start which will be loaded at the launch of the browser.</li>
+				<li><a>Web URL</a>: specify the web page to start which will be loaded at the launch of the browser. </li>
 				<li><a>Maximize</a>: launch a maximized browser.</li>
 				<li><a>Headless</a>: launch a headless browser.</li>
 			</ul>
@@ -94,7 +97,6 @@
             },
 			webURL : {
 				value : "https://www.google.com/",
-				required : true
 			},
 			width : {
 				value : 1280,

@@ -41,11 +41,12 @@ export function NodeOpenWebConstructor (this : NodeOpenWeb, conf : NodeOpenWebDe
         // Cheat to allow correct typing in typescript
         const msg : SeleniumMsg = message;
         const node = this;
+        const webURL = conf.webURL || msg.webURL || "";
         let driverError = false;
         msg.driver = WD2Manager.getDriver(conf);
         this.status({ fill : "blue", shape : "ring", text : "opening browser"});
         try {
-            await msg.driver.get(conf.webURL);
+            await msg.driver.get(webURL);
         } catch (e) {
             msg.driver = null;
             node.error("Can't open an instance of " + conf.browser);
