@@ -1,6 +1,6 @@
 {
-	"name": "node-red-contrib-selenium-wd2",
-	"version": "0.1.4",
+	"name": "@mygg29/node-red-contrib-selenium-wd2",
+	"version": "0.1.6",
 	"description": "Selenium-webdriver nodes for Node-RED based on node-red-contrib-selenium-webdriver",
 	"dependencies": {
 		"rxjs": "~6.6.3",
@@ -28,13 +28,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/simonradier/node-red-contrib-selenium-wd2"
+		"url": "https://github.com/mygg29/node-red-contrib-selenium-wd2"
 	},
 	"engines": {
 		"node": ">= 14.0.0"
 	},
 	"scripts": {
-		"prepublishOnly": "mkdir dist && cp -r src/icons dist/icons && cat src/nodes/*.html > dist/selenium-wd2.html && tsc",
+		"prepublishOnly": "npm run clean && mkdir dist && cp -r src/icons dist/icons && cat src/nodes/*.html > dist/selenium-wd2.html && tsc",
 		"clean": "rm -rf dist",
 		"postinstall": "cp ./patch/http.js ./node_modules/selenium-webdriver/lib/"
 	},

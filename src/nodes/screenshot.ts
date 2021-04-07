@@ -1,8 +1,7 @@
 import { until } from "selenium-webdriver";
 import { WD2Manager } from "../wd2-manager";
 import { SeleniumMsg, SeleniumNode, SeleniumNodeDef } from "./node";
-import * as fs from "fs/promises";
-
+import { promises as fs } from "fs";
 
 // tslint:disable-next-line: no-empty-interface
 export interface NodeScreenshotDef extends SeleniumNodeDef {
