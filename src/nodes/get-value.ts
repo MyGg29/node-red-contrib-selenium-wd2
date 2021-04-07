@@ -15,7 +15,7 @@ export interface NodeGetValue extends SeleniumNode {
 async function inputAction (node : NodeGetValue, conf : NodeGetValueDef, action : SeleniumAction) : Promise<void> {
     return new Promise<void> (async (resolve, reject) => {
         const msg = action.msg;
-        const expected = conf.expected ?? msg.expected;
+        const expected = conf.expected ? conf.expected : msg.expected;
         const step = "";
         try {
             msg.payload = await msg.element.getAttribute("value");

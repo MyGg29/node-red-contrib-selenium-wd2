@@ -67,10 +67,10 @@ export interface SeleniumMsg extends NodeMessageInFlow {
  */
 export function waitForElement(conf : SeleniumNodeDef, msg : SeleniumMsg) : Observable<string | WebElement>{
     return new Observable<string | WebElement> ((subscriber) => {
-        const waitFor : number = parseInt(conf.waitFor ?? msg.waitFor,10);
-        const timeout : number = parseInt(conf.timeout?? msg.timeout , 10);
-        const target : string = conf.target ?? msg.target;
-        const selector : string = conf.selector ?? msg.selector;
+        const waitFor : number = parseInt(conf.waitFor ? conf.waitFor : msg.waitFor,10);
+        const timeout : number = parseInt(conf.timeout? conf.timeout : msg.timeout , 10);
+        const target : string = conf.target ? conf.target : msg.target;
+        const selector : string = conf.selector ? conf.selector : msg.selector;
         let element : WebElement;
         subscriber.next("waiting for " + (waitFor / 1000).toFixed(1) + " s");
         setTimeout (async () => {

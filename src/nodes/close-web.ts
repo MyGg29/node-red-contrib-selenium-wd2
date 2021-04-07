@@ -24,7 +24,7 @@ export function NodeCloseWebConstructor (this : NodeCloseWeb, conf : NodeCloseWe
             this.status({ fill : "red", shape : "ring", text : "error"});
             done(error);
         } else {
-            const waitFor : number = parseInt(conf.waitFor ?? msg.waitFor,10);
+            const waitFor : number = parseInt(conf.waitFor ? conf.waitFor : msg.waitFor,10);
             this.status({ fill : "blue", shape : "ring", text : "waiting for " + (waitFor / 1000).toFixed(1) + " s"});
             setTimeout(async () => {
                 try {

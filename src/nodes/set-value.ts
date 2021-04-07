@@ -15,7 +15,7 @@ export interface NodeSetValue extends SeleniumNode {
 async function inputAction (node : NodeSetValue, conf : NodeSetValueDef, action : SeleniumAction) : Promise<void> {
     return new Promise<void> (async (resolve, reject) => {
         const msg = action.msg;
-        const value = conf.value ?? msg.value;
+        const value = conf.value ? conf.value : msg.value;
         try {
 			await msg.driver.executeScript("arguments[0].setAttribute('value', '" + value + "')", msg.element);
             node.status({ fill : "green", shape : "dot", text : "success"})

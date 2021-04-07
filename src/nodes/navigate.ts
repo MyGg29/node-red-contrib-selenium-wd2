@@ -26,10 +26,10 @@ export function NodeNavigateConstructor (this : NodeNavigate, conf : NodeNavigat
             node.status({ fill : "red", shape : "ring", text : "error"});
             done(error);
         } else {
-            const webTitle = conf.url ?? msg.url ;
-            const type = conf.navType ?? msg.navType ;
-            const url = conf.url ?? msg.url;
-            const waitFor : number = parseInt(conf.waitFor ?? msg.waitFor,10);
+            const webTitle = conf.url ? conf.url : msg.url ;
+            const type = conf.navType ? conf.navType : msg.navType ;
+            const url = conf.url ? conf.url : msg.url;
+            const waitFor : number = parseInt(conf.waitFor ? conf.waitFor : msg.waitFor,10);
             setTimeout (async () => {
                 try {
                     node.status({ fill : "blue", shape : "ring", text : "loading"});

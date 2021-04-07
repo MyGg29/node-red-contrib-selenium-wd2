@@ -41,7 +41,7 @@ export function NodeOpenWebConstructor (this : NodeOpenWeb, conf : NodeOpenWebDe
         // Cheat to allow correct typing in typescript
         const msg : SeleniumMsg = message;
         const node = this;
-        const webURL = conf.webURL ?? msg.webURL;
+        const webURL = conf.webURL ? conf.webURL : msg.webURL;
         let driverError = false;
         msg.driver = WD2Manager.getDriver(conf);
         this.status({ fill : "blue", shape : "ring", text : "opening browser"});

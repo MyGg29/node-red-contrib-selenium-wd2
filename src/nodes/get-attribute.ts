@@ -16,8 +16,8 @@ export interface NodeGetAttribute extends SeleniumNode {
 async function inputAction (node : NodeGetAttribute, conf : NodeGetAttributeDef, action : SeleniumAction) : Promise<void> {
     return new Promise<void> (async (resolve, reject) => {
         const msg = action.msg;
-        const expected = conf.expected ?? msg.expected;
-        const attribute = conf.attribute ?? msg.attribute;
+        const expected = conf.expected ? conf.expected : msg.expected;
+        const attribute = conf.attribute ? conf.attribute : msg.attribute;
         const step = "";
         try {
             msg.payload = await msg.element.getAttribute(attribute);

@@ -25,9 +25,9 @@ export function NodeGetTitleConstructor (this : NodeGetTitle, conf : NodeGetTitl
             node.status({ fill : "red", shape : "ring", text : "error"});
             done(error);
         } else {
-            const expected =  conf.expected ?? msg.expected;
-            const waitFor: number = parseInt(conf.waitFor ?? msg.waitFor, 10);
-            const timeout: number = parseInt(conf.timeout ?? msg.timeout, 10);
+            const expected =  conf.expected ? conf.expected : msg.expected;
+            const waitFor: number = parseInt(conf.waitFor ? conf.expected : msg.waitFor, 10);
+            const timeout: number = parseInt(conf.timeout ? conf.expected : msg.timeout, 10);
             setTimeout (async () => {
                 if (expected && expected !== "") {
                     try {
