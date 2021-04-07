@@ -26,8 +26,8 @@ export function NodeScreenshotConstructor (this : NodeScreenshot, conf : NodeScr
             node.status({ fill : "red", shape : "ring", text : "error"});
             done(error);
         } else {
-            const waitFor : number = parseInt(msg.waitFor ?? conf.waitFor,10);
-            const filePath : string = msg.filePath ?? conf.filePath;
+            const waitFor : number = parseInt(conf.waitFor ?? msg.waitFor ,10);
+            const filePath : string = conf.filePath ?? msg.filePath;
             setTimeout (async () => {
                 try {
                     const sc = await msg.driver.takeScreenshot();

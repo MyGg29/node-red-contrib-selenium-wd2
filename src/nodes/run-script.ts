@@ -14,7 +14,7 @@ export interface NodeRunScript extends SeleniumNode {
 async function inputAction (node : NodeRunScript, conf : NodeRunScriptDef, action : SeleniumAction) : Promise<void> {
     return new Promise<void> (async (resolve, reject) => {
         const msg = action.msg;
-        const script = msg.script ?? conf.script;
+        const script = conf.script ?? msg.script ;
         try {
             msg.payload = await msg.driver.executeScript(script, msg.element);
             node.status({ fill : "green", shape : "dot", text : "success"})

@@ -15,8 +15,8 @@ export interface NodeSendKeys extends SeleniumNode {
 async function inputAction (node : NodeSendKeys, conf : NodeSendKeysDef, action : SeleniumAction) : Promise<void> {
     return new Promise<void> (async (resolve, reject) => {
         const msg = action.msg;
-        const clearVal = msg.clearVal ?? conf.clearVal;
-        const keys = msg.keys ?? conf.keys;
+        const clearVal = conf.clearVal ?? msg.clearVal ;
+        const keys = conf.keys ?? msg.keys;
         let step = "";
         try {
             if (clearVal){
