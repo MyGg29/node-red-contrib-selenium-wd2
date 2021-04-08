@@ -1,6 +1,6 @@
 {
 	"name": "@mygg29/node-red-contrib-selenium-wd2",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"description": "Selenium-webdriver nodes for Node-RED based on node-red-contrib-selenium-webdriver",
 	"dependencies": {
 		"rxjs": "~6.6.3",
